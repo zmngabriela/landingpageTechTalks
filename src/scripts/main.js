@@ -15,4 +15,9 @@ const timeCount = setInterval(function() {
     const secondsUntilEvent = Math.floor(timeUntilEvent % (1000 * 60) / 1000);
 
     document.querySelector('.counting').innerHTML = `${daysUntilEvent}d ${hoursUntilEvent}h ${minutesUntilEvent}m ${secondsUntilEvent}s`;
+
+    if (timeUntilEvent < 0) {
+        clearInterval(timeCount);
+        document.querySelector('.counting').innerHTML = 'Evento expirado';
+    }
 }, 1000);
